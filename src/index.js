@@ -9,7 +9,7 @@ const clear = document.getElementById('clear');
 let start = null;
 let isAnimation = false;
 
-board.addEventListener('click', (e) => {
+board.addEventListener('click', async (e) => {
     if (isAnimation) {
         return;
     }
@@ -35,7 +35,7 @@ board.addEventListener('click', (e) => {
 
             const path = knightMoves(start, end);
             console.log(path);
-            horseAnimation(path);
+            await horseAnimation(path);
             start = null;
             isAnimation = false;
         }
