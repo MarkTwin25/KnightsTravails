@@ -51,3 +51,19 @@ export function knightMoves(start, end) {
         }
     }
 }
+
+export function getCellsBetween(start, end) {
+    const xDiff = end[0] - start[0];
+    const yDiff = end[1] - start[1];
+    const sol = [];
+
+    if (Math.abs(xDiff) === 2) {
+        sol.push([start[0] + xDiff / 2, start[1]]);
+        sol.push([end[0], start[1]]);
+    } else {
+        sol.push([start[0], start[1] + yDiff / 2]);
+        sol.push([start[0], end[1]]);
+    }
+
+    return sol;
+}
